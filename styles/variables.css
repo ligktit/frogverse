@@ -1,0 +1,115 @@
+/* ==========================================================================
+   Frogverse — Design Tokens
+   Extracted from Figma via get_variable_defs MCP tool
+   File: qViAR6I3zSWzYHJtRGFxVH (FrogVerse Remake)
+   ========================================================================== */
+
+:root {
+  /* ---- Colors — Primary ---- */
+  --color-primary: #FDCC34;           /* Primary/Primary — Gold/Yellow */
+  --color-primary-orange: #FF733C;    /* Primary/Primary-Orangey */
+  --color-primary-grad: linear-gradient(135deg, #FDCC34, #FF733C);
+
+  /* ---- Colors — Secondary ---- */
+  --color-secondary: #2F82FF;         /* 2NDARY/Secondary — Blue */
+
+  /* ---- Colors — Positive/Success ---- */
+  --color-positive: #51FF51;          /* Positive/Positive3 — Green */
+
+  /* ---- Colors — Text ---- */
+  --color-text: #18181B;              /* Text/Text */
+  --color-text-75: #18181B;           /* Text/Text-75% (with opacity) */
+  --color-text-white: #FFFFFF;        /* Text/Text-White */
+  --color-text-muted: #FFFFFF;        /* Text/Muted */
+
+  /* ---- Colors — Backgrounds & Grays ---- */
+  --color-gray: #BDBDBD;             /* BG+GRAY/Gray2 */
+  --color-gray-button: #272727;       /* BG+GRAY/GrayButton */
+  --color-btn-dark: #1E2328;          /* BtnBg/Dark */
+
+  /* ---- Colors — Gradients (applied via CSS) ---- */
+  --gradient-gold: linear-gradient(135deg, #FDCC34, #FFD700);
+  --gradient-yellow: #FFBB28;
+  --gradient-dark: linear-gradient(180deg, #1E2328, #0D0F11);
+
+  /* ---- Colors — Status (derived) ---- */
+  --color-success: #51FF51;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-info: #2F82FF;
+
+  /* ---- Typography — Font Families ---- */
+  --font-family-primary: 'Inter', sans-serif;
+  --font-family-display: 'Cormorant', serif;
+
+  /* ---- Typography — Font Sizes ---- */
+  --font-size-3xs: 0.5rem;    /* 8px — Text3 */
+  --font-size-2xs: 0.625rem;  /* 10px — Text2 */
+  --font-size-xs: 0.75rem;    /* 12px — Text1, Title2 */
+  --font-size-sm: 0.875rem;   /* 14px — Title1, Header3 */
+  --font-size-base: 1rem;     /* 16px — Title3, Body */
+  --font-size-md: 1.125rem;   /* 18px — Header1 */
+  --font-size-lg: 1.25rem;    /* 20px — Title4 */
+
+  /* ---- Typography — Font Weights ---- */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* ---- Typography — Line Height ---- */
+  --line-height-tight: 1;       /* 100% — All Figma text styles */
+  --line-height-normal: 1.4;
+  --line-height-relaxed: 1.6;
+
+  /* ---- Typography — Letter Spacing ---- */
+  --letter-spacing-tight: -0.02em;  /* Header styles: -2 */
+  --letter-spacing-normal: 0;
+
+  /* ---- Spacing ---- */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+
+  /* ---- Border Radius ---- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* ---- Shadows — Material Design 3 (from Figma) ---- */
+  --shadow-elevation-1:
+    0 1px 3px 1px rgba(0, 0, 0, 0.15),
+    0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-elevation-3:
+    0 1px 3px 0 rgba(0, 0, 0, 0.3),
+    0 4px 8px 3px rgba(0, 0, 0, 0.15);
+
+  /* ---- Effects ---- */
+  --textshine: inset 0 0.5px 0.5px rgba(255, 255, 255, 0.5);
+
+  /* ---- Transitions ---- */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* ---- Z-index ---- */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal-backdrop: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+
+  /* ---- Layout ---- */
+  --max-width-app: 393px;  /* iPhone 16 viewport width */
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+}

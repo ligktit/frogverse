@@ -1,0 +1,670 @@
+/* ==========================================================================
+   Frogverse — Home Screen Styles
+   Matching Figma node 269:9836
+   ========================================================================== */
+
+/* ---- App Container Override ---- */
+.app {
+  background: #253d2b;
+  color: var(--color-text-white);
+  position: relative;
+  overflow: hidden;
+  max-width: var(--max-width-app);
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+/* ================================================================
+   TOP HEADER BAR
+   ================================================================ */
+.top-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--max-width-app);
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, transparent 100%);
+  z-index: var(--z-sticky);
+}
+
+.top-header__title {
+  font-family: var(--font-family-display);
+  font-size: 18px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+  background: linear-gradient(180deg, #fffdd1 0%, #9f7d33 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.top-header__menu-btn,
+.top-header__notif-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ================================================================
+   MAIN CONTENT AREA
+   ================================================================ */
+.home-main {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Background Image (bg-main.webp) ---- */
+.home-main__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.home-main__bg-img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 170%;
+  height: 102%;
+  object-fit: cover;
+  object-position: center top;
+  filter: blur(2px);
+}
+
+.home-main__bg-gradient-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 61px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, transparent 100%);
+  z-index: 1;
+}
+
+.home-main__bg-gradient-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 280px;
+  background: linear-gradient(0deg, rgba(0,0,0,0.95) 25%, transparent 100%);
+  z-index: 1;
+}
+
+/* ================================================================
+   FROG CHARACTER — Main Frog Image
+   Figma: 688×636, centered and overflowing the frame
+   ================================================================ */
+.frog-character {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1;
+  flex: 0 0 auto;
+  min-height: 0;
+  padding-top: 40px;
+  margin-bottom: -80px;
+  overflow: visible;
+}
+
+.frog-character__img {
+  width: 171%;
+  max-width: none;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 40px rgba(0,0,0,0.5));
+}
+
+/* ================================================================
+   FROG INFO BADGE — using FrogInfoHome component
+   Position top-left, overlaying the character
+   ================================================================ */
+.frog-info-wrapper {
+  position: absolute;
+  top: 16px;
+  left: 10px;
+  z-index: 5;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15))
+          drop-shadow(0 1px 3px rgba(0,0,0,0.3));
+}
+
+/* Scale down for mobile (Figma: 246×87 inside 402 frame → ~61%) */
+.frog-info-wrapper .frog-info-home {
+  transform: scale(0.76);
+  transform-origin: top left;
+}
+
+/* ================================================================
+   SIDE MENU BUTTONS — using HomeButton component
+   ================================================================ */
+.side-buttons {
+  position: absolute;
+  top: 88px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index: 5;
+}
+
+.side-buttons--left {
+  left: 4px;
+}
+
+.side-buttons--right {
+  right: 4px;
+}
+
+/* ================================================================
+   TOKEN BADGES
+   ================================================================ */
+.token-badges {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 13px;
+  padding: 6px 0;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15))
+          drop-shadow(0 1px 3px rgba(0,0,0,0.3));
+}
+
+.token-badge {
+  width: 71px;
+  height: 73px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform var(--transition-fast);
+  cursor: pointer;
+}
+
+.token-badge:hover {
+  transform: scale(1.1);
+}
+
+.token-badge__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ================================================================
+   FEED SECTION
+   ================================================================ */
+.feed-section {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 33px;
+  margin: 0 auto;
+  max-width: 321px;
+  width: 100%;
+  background: rgba(24, 24, 27, 0.75);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+}
+
+.feed-section__progress {
+  width: 100%;
+}
+
+.feed-section__progress-track {
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(90deg, #333 0%, #555 100%);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.feed-section__progress-track::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.feed-section__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #51FF51 0%, #268026 100%);
+  border-radius: 5px;
+  transition: width 0.5s ease;
+  box-shadow: 0 0 8px rgba(81, 255, 81, 0.4);
+}
+
+.feed-section__reminder {
+  font-size: 12px;
+  color: var(--color-text-white);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.15);
+  text-align: center;
+  margin: 0;
+}
+
+.feed-section__timer {
+  font-family: var(--font-family-primary);
+  font-size: 20px;
+  font-weight: var(--font-weight-bold);
+  color: #ffe18f;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.15);
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.timer__segment {
+  font-variant-numeric: tabular-nums;
+}
+
+.timer__sep {
+  color: #ffe18f;
+  opacity: 0.8;
+}
+
+/* Feed Button — using game-btn component, wider */
+.feed-btn-game {
+  width: 210px;
+}
+
+/* ================================================================
+   STATS SECTION
+   ================================================================ */
+.stats-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 8px 33px;
+  position: relative;
+  z-index: 2;
+  max-width: 321px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 79px;
+}
+
+.stat-item--center {
+  text-align: center;
+}
+
+.stat-item--end {
+  text-align: right;
+}
+
+.stat-item__label {
+  font-family: var(--font-family-display);
+  font-size: 18px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.36px;
+  background: linear-gradient(180deg, #ddaf4a 0%, #ffe18f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-item__value {
+  font-family: var(--font-family-primary);
+  font-size: 12px;
+  color: var(--color-text-white);
+}
+
+/* ================================================================
+   XP SECTION
+   ================================================================ */
+.xp-section {
+  padding: 4px 33px 16px;
+  position: relative;
+  z-index: 2;
+  max-width: 321px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.xp-section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.xp-section__label {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.xp-section__current {
+  font-size: 10px;
+  color: var(--color-text-white);
+}
+
+.xp-section__bar {
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.xp-section__bar-track {
+  width: 100%;
+  height: 6px;
+  background: #333;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.xp-section__bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ffe18f 0%, #ddaf4a 100%);
+  border-radius: 3px;
+  transition: width 0.5s ease;
+  box-shadow: 0 0 6px rgba(255, 225, 143, 0.4);
+}
+
+.xp-section__level-badge {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 14px;
+  background: var(--gradient-yellow);
+  color: #000;
+  font-size: 7px;
+  padding: 2px 5px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.xp-section__footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.xp-section__min,
+.xp-section__max {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ================================================================
+   BOTTOM NAVIGATION BAR
+   ================================================================ */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--max-width-app);
+  height: 79px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 4px;
+  padding-bottom: calc(8px + var(--safe-area-bottom));
+  z-index: var(--z-sticky);
+  background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+  border-top: 1px solid rgba(255, 225, 143, 0.15);
+}
+
+.bottom-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 10px;
+  transition: all var(--transition-fast);
+  padding: 4px 8px;
+}
+
+.bottom-nav__item:hover,
+.bottom-nav__item--active {
+  color: #ffe18f;
+}
+
+.bottom-nav__icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.bottom-nav__label {
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* ================================================================
+   FEED MODAL (Bootstrap modal override)
+   ================================================================ */
+.feed-modal {
+  background: transparent;
+  border: none;
+}
+
+.feed-modal__body {
+  background: #1a1a1a;
+  border: 2px solid #ddaf4a;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.feed-modal__inputs {
+  display: flex;
+  gap: 14px;
+}
+
+.feed-modal__input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.feed-modal__input-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feed-modal__currency {
+  font-family: 'Alice', serif;
+  font-size: 14px;
+  color: var(--color-text-white);
+}
+
+.feed-modal__amount {
+  font-family: 'Alice', serif;
+  font-size: 10px;
+  color: #269f38;
+}
+
+.feed-modal__input {
+  background: #000;
+  border: 1px solid rgba(255, 234, 191, 0.6);
+  border-radius: 5px;
+  padding: 6px 8px;
+  color: var(--color-text-white);
+  font-size: 10px;
+  outline: none;
+}
+
+.feed-modal__input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.feed-modal__input:focus {
+  border-color: #ffe18f;
+}
+
+.feed-modal__net {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--color-text-white);
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 234, 191, 0.2);
+}
+
+.feed-modal__presets {
+  display: flex;
+  border: 1px solid #ddaf4a;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.feed-modal__preset {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  font-family: 'Alice', serif;
+  font-size: 18px;
+  color: #ffe18f;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.feed-modal__preset--min {
+  background: linear-gradient(180deg, #dc3545 0%, #761c25 100%);
+}
+
+.feed-modal__preset--target {
+  background: linear-gradient(180deg, #ffb73c 0%, #d88006 100%);
+}
+
+.feed-modal__preset--max {
+  background: linear-gradient(180deg, #28a745 0%, #10411b 100%);
+}
+
+.feed-modal__preset:hover {
+  filter: brightness(1.15);
+}
+
+.feed-modal__actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.feed-modal__actions .game-btn {
+  flex: 1;
+}
+
+/* ================================================================
+   FEED SUCCESS OVERLAY (post-feed confirmation)
+   Figma node: 269:9960
+   ================================================================ */
+.feed-success-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(24, 24, 27, 0.75);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: var(--z-modal, 1050);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feed-success {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  padding: 20px;
+  width: 338px;
+  max-width: calc(100% - 64px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.feed-success__header {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.feed-success__title {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 14px;
+  color: var(--color-text-white);
+}
+
+.feed-success__divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.feed-success__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.feed-success__label {
+  font-family: var(--font-family-primary);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.feed-success__value {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 14px;
+  color: var(--color-text-white);
+  text-align: right;
+}
+
+.feed-success__value--positive {
+  color: #51ff51;
+}
+
+.feed-success__value--primary {
+  color: #fdcc34;
+}
+
+.feed-success__message {
+  font-family: var(--font-family-primary);
+  font-size: 12px;
+  color: var(--color-text-white);
+  text-align: center;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.feed-success__btn {
+  width: 100%;
+}
+

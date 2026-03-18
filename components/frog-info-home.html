@@ -1,0 +1,39 @@
+<!-- 
+  Frogverse — FrogInfoHome Component
+  Figma: FrogInfoHome (node 192:6573)
+  
+  Profile picture + name + XP bar widget for the Home screen.
+  Uses TWO SVG layers to properly sandwich the XP bar.
+  
+  REQUIRES: styles/components.css
+  
+  Dynamic data:
+    - Avatar image: replace src in .frog-info-home__avatar img
+    - Frog name:    edit text in .frog-info-home__name
+    - XP progress:  set --xp-percent on .frog-info-home (0–100)
+-->
+
+<div class="frog-info-home" style="--xp-percent: 70;">
+  <!-- z-0: Back layer — dark XP tracks -->
+  <div class="frog-info-home__shell-back">
+    <img src="../assets/FrogInfoHome-back.svg" alt="" aria-hidden="true">
+  </div>
+
+  <!-- z-1: XP bar fill (green gradient) -->
+  <div class="frog-info-home__xp-fill">
+    <div class="frog-info-home__xp-fill-bar"></div>
+  </div>
+
+  <!-- z-2: Front layer — gold frame + nameplate + profile ring -->
+  <div class="frog-info-home__shell-front">
+    <img src="../assets/FrogInfoHome-front.svg" alt="" aria-hidden="true">
+  </div>
+
+  <!-- z-3: Avatar image -->
+  <div class="frog-info-home__avatar">
+    <img src="../assets/thumbs/king.webp" alt="Frog avatar">
+  </div>
+
+  <!-- z-3: Frog name -->
+  <span class="frog-info-home__name">Frog name ID</span>
+</div>

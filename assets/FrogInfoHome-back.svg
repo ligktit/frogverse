@@ -1,0 +1,31 @@
+<svg width="246" height="87" viewBox="0 0 246 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- Back layer: Gold XP frame (bottom notch) + dark XP tracks -->
+<g filter="url(#f0)">
+<!-- Gold XP frame outer shape -->
+<mask id="m1" fill="white">
+<path d="M213 53C208.735 53 205.278 55.6863 205.278 59H65V45H213V53Z"/>
+</mask>
+<path d="M213 53C208.735 53 205.278 55.6863 205.278 59H65V45H213V53Z" fill="url(#g1)"/>
+<path d="M213 53V54L214 54V53H213ZM205.278 59V60H206.278V59H205.278ZM65 59H64V60H65V59ZM65 45V44H64V45H65ZM213 45H214V44H213V45ZM213 53V52C208.433 52 204.278 54.9139 204.278 59H205.278H206.278C206.278 56.4587 209.038 54 213 54V53ZM205.278 59V58H65V59V60H205.278V59ZM65 59H66V45H65H64V59H65ZM65 45V46H213V45V44H65V45ZM213 45H212V53H213H214V45H213Z" fill="url(#g2)" mask="url(#m1)"/>
+<!-- Dark XP track rects -->
+<rect x="65.2643" y="48" width="135.283" height="8" rx="4" fill="#18181B"/>
+<rect x="64" y="49" width="135.283" height="6" rx="3" fill="#272727"/>
+</g>
+<defs>
+<filter id="f0" x="-1" y="39" width="220" height="26" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1.5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+<linearGradient id="g1" x1="213" y1="52" x2="12.8783" y2="52" gradientUnits="userSpaceOnUse">
+<stop stop-color="#9F7D33"/><stop offset="1" stop-color="#FFFDD1"/>
+</linearGradient>
+<linearGradient id="g2" x1="139" y1="45" x2="139" y2="59" gradientUnits="userSpaceOnUse">
+<stop stop-color="#281F08"/><stop offset="1" stop-color="#684F27"/>
+</linearGradient>
+</defs>
+</svg>

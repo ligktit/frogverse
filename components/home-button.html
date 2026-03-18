@@ -1,0 +1,27 @@
+<!-- 
+  Frogverse — HomeButton Component
+  Figma: HomeButtons (node 192:6783)
+  
+  Circular icon button used on the Home screen for navigation
+  (3D Map, Shop, Leaderboard, etc.).
+  
+  REQUIRES: styles/components.css
+  
+  Dynamic data:
+    - Icon image:  replace src in .home-button__icon
+    - Button text: edit text in .home-button__label-text
+    - Link target: set href on .home-button
+  
+  Usage:
+-->
+
+<a href="#" class="home-button">
+  <!-- Decorative SVG background (circle + gold ring + shadow) -->
+  <img class="home-button__bg" src="../assets/icons/bg-HomeButtons.svg" alt="" aria-hidden="true">
+
+  <!-- Dynamic: Icon image -->
+  <img class="home-button__icon" src="../assets/icons/3dmap.svg" alt="3D Map">
+
+  <!-- Dynamic: Label text -->
+  <span class="home-button__label"><span class="home-button__label-text">Danh mục</span></span>
+</a>

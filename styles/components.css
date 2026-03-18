@@ -1,0 +1,501 @@
+/* ==========================================================================
+   Frogverse — Component Styles
+   Shared reusable components from Figma Design System
+   ========================================================================== */
+
+/* ================================================================
+   GOOGLE FONT — Alice (for buttons)
+   ================================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
+
+/* ================================================================
+   GAME FRAME — Gold Border Container (CSS border-image)
+   
+   Uses frame-border.svg (9-slice SVG) via CSS border-image.
+   Corners (15px ticket-notch) stay fixed. Edges stretch.
+   Background is transparent. NO JS required.
+   
+   Usage:
+     <div class="game-frame">
+       <p>Content here — adapts to any size</p>
+     </div>
+   
+   CSS Custom Properties:
+     --frame-padding: 28px  (content padding inside the border)
+   ================================================================ */
+.game-frame {
+  --frame-padding: 28px;
+
+  position: relative;
+  border: 20px solid transparent;
+  border-image-source: url('../assets/Frame.svg');
+  border-image-slice: 20 fill;
+  border-image-width: 20px;
+  border-image-repeat: stretch;
+  padding: var(--frame-padding);
+}
+
+/* Remove fill to keep background transparent */
+.game-frame {
+  border-image-slice: 20;
+}
+
+/* ================================================================
+   BUTTONS — Shared Base
+   All buttons use an inline SVG for the ticket-notch shape.
+   Colors are controlled via CSS custom properties on the button.
+   ================================================================ */
+.game-btn {
+  --btn-fill-top: #FFB73C;
+  --btn-fill-bottom: #D88006;
+  --btn-stroke: #FFE18F;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 7px 24px 9px;
+  font-family: 'Alice', serif;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.36px;
+  text-align: center;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  isolation: isolate;
+  background: none;
+  transition: transform 0.15s ease;
+  text-decoration: none;
+}
+
+/* SVG background layer — fills entire button */
+.game-btn__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.game-btn__bg svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Text sits above the SVG */
+.game-btn__text {
+  position: relative;
+  z-index: 2;
+}
+
+.game-btn:hover {
+  transform: translateY(-1px);
+}
+
+.game-btn:active {
+  transform: translateY(1px);
+}
+
+/* ================================================================
+   GOLD BUTTON — Gold1
+   Default:  #FFB73C → #D88006, stroke #FFE18F
+   Hover:    #FFE7BE → #FFAA33, stroke #FFF6DF, text #de8148
+   Pressed:  #8F5300 → #C28825, stroke #6D5206
+   ================================================================ */
+.game-btn--gold {
+  --btn-fill-top: #FFB73C;
+  --btn-fill-bottom: #D88006;
+  --btn-stroke: #FFE18F;
+}
+
+.game-btn--gold .game-btn__text {
+  color: #79401d;
+}
+
+.game-btn--gold:hover {
+  --btn-fill-top: #FFE7BE;
+  --btn-fill-bottom: #FFAA33;
+  --btn-stroke: #FFF6DF;
+}
+
+.game-btn--gold:hover .game-btn__text {
+  color: #de8148;
+}
+
+.game-btn--gold:active {
+  --btn-fill-top: #8F5300;
+  --btn-fill-bottom: #C28825;
+  --btn-stroke: #6D5206;
+}
+
+/* ================================================================
+   GREEN BUTTON — Green1
+   Default:  #269F38 → #253D2B, stroke white overlay
+   Hover:    #67F47C → #347646, stroke white overlay
+   Pressed:  #203827 → #186123, stroke white 50% overlay
+   ================================================================ */
+.game-btn--green {
+  --btn-fill-top: #269F38;
+  --btn-fill-bottom: #253D2B;
+  --btn-stroke: rgba(255,255,255,0.4);
+}
+
+.game-btn--green .game-btn__text {
+  background: linear-gradient(180deg, #fffdd1 0%, #9f7d33 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.game-btn--green:hover {
+  --btn-fill-top: #67F47C;
+  --btn-fill-bottom: #347646;
+  --btn-stroke: rgba(255,255,255,0.5);
+}
+
+.game-btn--green:active {
+  --btn-fill-top: #203827;
+  --btn-fill-bottom: #186123;
+  --btn-stroke: rgba(255,255,255,0.25);
+}
+
+/* ================================================================
+   GRAY BUTTON — Gray
+   Default:  #536168 → #202628, stroke white overlay
+   Hover:    #859BA6 → #3D474D, stroke white overlay
+   Pressed:  #202628 → #3C474D, stroke white overlay
+   ================================================================ */
+.game-btn--gray {
+  --btn-fill-top: #536168;
+  --btn-fill-bottom: #202628;
+  --btn-stroke: rgba(255,255,255,0.4);
+}
+
+.game-btn--gray .game-btn__text {
+  background: linear-gradient(-6deg, #46565d 8%, #dff4ff 87%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.game-btn--gray:hover {
+  --btn-fill-top: #859BA6;
+  --btn-fill-bottom: #3D474D;
+  --btn-stroke: rgba(255,255,255,0.5);
+}
+
+.game-btn--gray:active {
+  --btn-fill-top: #202628;
+  --btn-fill-bottom: #3C474D;
+  --btn-stroke: rgba(255,255,255,0.3);
+}
+
+.game-btn--gray:active .game-btn__text {
+  color: #18181b;
+  -webkit-text-fill-color: #18181b;
+  background: none;
+}
+
+/* ================================================================
+   CIRCLE CHECK (radio-like)
+   ================================================================ */
+.circle-check {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1.5px solid #666;
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.circle-check--checked {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3), inset 0 0 0 2px #000;
+}
+
+/* ================================================================
+   CHECKBOX
+   ================================================================ */
+.game-checkbox {
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+  border: 1.5px solid #666;
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.game-checkbox--checked {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+}
+
+.game-checkbox--checked::after {
+  content: '✓';
+  color: #000;
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* ================================================================
+   TOGGLE SWITCH
+   ================================================================ */
+.game-toggle {
+  width: 35px;
+  height: 19px;
+  border-radius: 10px;
+  background: #555;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  position: relative;
+  border: none;
+  flex-shrink: 0;
+}
+
+.game-toggle::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform var(--transition-fast);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.game-toggle--active {
+  background: var(--color-primary);
+}
+
+.game-toggle--active::after {
+  transform: translateX(16px);
+}
+
+/* ================================================================
+   FROG INFO HOME — Profile + Name + XP Bar
+   Figma: FrogInfoHome (node 192:6573)
+   
+   Uses TWO SVG layers to sandwich the XP bar:
+     z-0: back.svg  (dark XP tracks)
+     z-1: XP fill   (green bar, HTML)
+     z-2: front.svg (gold frame + nameplate + profile ring)
+     z-3: avatar    (frog image, HTML)
+     z-3: name      (text, HTML)
+   
+   CSS Custom Properties:
+     --xp-percent: 0-100  (XP fill width)
+   ================================================================ */
+.frog-info-home {
+  --xp-percent: 70;
+
+  position: relative;
+  width: 246px;
+  height: 87px;
+  flex-shrink: 0;
+}
+
+/* Shared SVG shell base */
+.frog-info-home__shell-back,
+.frog-info-home__shell-front {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.frog-info-home__shell-back img,
+.frog-info-home__shell-front img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Back layer: dark XP tracks */
+.frog-info-home__shell-back {
+  z-index: 0;
+}
+
+/* Front layer: gold frame + nameplate + profile ring */
+.frog-info-home__shell-front {
+  z-index: 2;
+}
+
+/* ---- Profile Avatar ---- */
+.frog-info-home__avatar {
+  position: absolute;
+  left: 17.5px;
+  top: 13.5px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+.frog-info-home__avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- Nameplate Text ---- */
+.frog-info-home__name {
+  position: absolute;
+  left: 80px;
+  top: 26px;
+  right: 25px;
+  height: 16px;
+  z-index: 3;
+
+  font-family: var(--font-family-display);
+  font-size: 16px;
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  letter-spacing: -0.32px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  /* Gold gradient text */
+  background: linear-gradient(180deg, #281f08 0%, #684f27 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---- XP Bar Fill ---- */
+.frog-info-home__xp-fill {
+  position: absolute;
+  left: 64px;
+  top: 49px;
+  width: 135px;
+  height: 6px;
+  z-index: 1;  /* Above back tracks, below front gold frame */
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.frog-info-home__xp-fill-bar {
+  height: 100%;
+  width: calc(var(--xp-percent) * 1%);
+  min-width: 6px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #8fff8f 0%, #268026 100%);
+  transition: width 0.4s ease;
+}
+
+/* ================================================================
+   HOME BUTTON — Circular icon button (Map, Shop, etc.)
+   Figma: HomeButtons (node 192:6783)
+   
+   Uses bg-HomeButtons.svg as the decorative circular background
+   (gradient fill + gold ring + drop-shadow).
+   Icon image and label text are overlaid via HTML.
+
+   Container: 64×64, label extends below.
+
+   Usage:
+     <a href="#" class="home-button">
+       <img class="home-button__bg"  src="…/bg-HomeButtons.svg">
+       <img class="home-button__icon" src="…/3dmap.svg">
+       <span class="home-button__label">
+         <span class="home-button__label-text">Danh mục</span>
+       </span>
+     </a>
+   ================================================================ */
+.home-button {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.home-button:hover {
+  transform: translateY(-2px);
+}
+
+.home-button:active {
+  transform: translateY(1px);
+}
+
+/* SVG background — 64×64, centered on the container.
+   SVG viewBox is cropped to 64×64 centered on the circle. */
+.home-button__bg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Icon — 61×61, centered horizontally, slightly raised.
+   Figma: centered, top:-6. Equivalent: top = 50% - 38px (half of 64 + 6). */
+.home-button__icon {
+  position: absolute;
+  left: 50%;
+  top: -6px;
+  width: 61px;
+  height: 61px;
+  transform: translateX(-50%);
+  z-index: 2;
+  pointer-events: none;
+  object-fit: contain;
+  filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.15))
+          drop-shadow(0px 1px 3px rgba(0,0,0,0.3));
+}
+
+/* Label pill — centered below the circle.
+   Figma: top:46, centered, width:72, py:6 px:8 */
+.home-button__label {
+  position: absolute;
+  top: 46px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 72px;
+  width: max-content;
+  padding: 6px 8px;
+  border-radius: 20px;
+  background: rgba(24, 24, 27, 0.75);
+  text-align: center;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+/* Label text — gold gradient, Cormorant Bold 14px */
+.home-button__label-text {
+  font-family: var(--font-family-display);
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  letter-spacing: -0.28px;
+  white-space: nowrap;
+
+  background: linear-gradient(to top, #9f7d33 0%, #fffdd1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
