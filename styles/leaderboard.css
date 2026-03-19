@@ -185,8 +185,7 @@
   gap: 12px;
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: calc(100vh - 460px);
-  max-height: calc(100dvh - 460px);
+  max-height: calc(var(--app-height) - 460px);
   padding-bottom: 4px;
 }
 
@@ -199,40 +198,85 @@
   min-height: 65px;
   transition: background var(--transition-fast);
   /* Ticket-notch mask: 6px radius circular cutouts at all 4 corners */
-  --notch-r: 6px;
-  -webkit-mask-image:
-    radial-gradient(circle var(--notch-r) at 0 0, transparent 99%, #000 100%),
-    radial-gradient(circle var(--notch-r) at 100% 0, transparent 99%, #000 100%),
-    radial-gradient(circle var(--notch-r) at 0 100%, transparent 99%, #000 100%),
-    radial-gradient(circle var(--notch-r) at 100% 100%, transparent 99%, #000 100%);
-  -webkit-mask-composite: destination-in;
-  mask-image:
-    radial-gradient(circle var(--notch-r) at 0 0, transparent 99%, #000 100%),
-    radial-gradient(circle var(--notch-r) at 100% 0, transparent 99%, #000 100%),
-    radial-gradient(circle var(--notch-r) at 0 100%, transparent 99%, #000 100%),
-    radial-gradient(circle var(--notch-r) at 100% 100%, transparent 99%, #000 100%);
-  mask-composite: intersect;
+  --notch: 6px;
+  -webkit-mask:
+    radial-gradient(circle var(--notch) at 0 0, #0000 98%, #000) 0 0 / 51% 51% no-repeat,
+    radial-gradient(circle var(--notch) at 100% 0, #0000 98%, #000) 100% 0 / 51% 51% no-repeat,
+    radial-gradient(circle var(--notch) at 0 100%, #0000 98%, #000) 0 100% / 51% 51% no-repeat,
+    radial-gradient(circle var(--notch) at 100% 100%, #0000 98%, #000) 100% 100% / 51% 51% no-repeat;
+  mask:
+    radial-gradient(circle var(--notch) at 0 0, #0000 98%, #000) 0 0 / 51% 51% no-repeat,
+    radial-gradient(circle var(--notch) at 100% 0, #0000 98%, #000) 100% 0 / 51% 51% no-repeat,
+    radial-gradient(circle var(--notch) at 0 100%, #0000 98%, #000) 0 100% / 51% 51% no-repeat,
+    radial-gradient(circle var(--notch) at 100% 100%, #0000 98%, #000) 100% 100% / 51% 51% no-repeat;
+  -webkit-mask-origin: border-box;
+  -webkit-mask-clip: border-box;
+  mask-origin: border-box;
+  mask-clip: border-box;
+  overflow: hidden;
 }
 
-/* Rank-specific backgrounds via gradients */
+.lb-cell__decor {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: auto;
+  opacity: 1;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Shared ::after for top-3 ranked cells — inner fill with notch */
+.lb-cell--gold::after,
+.lb-cell--silver::after,
+.lb-cell--bronze::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  z-index: 0;
+  --inner-notch: 6px;
+  -webkit-mask:
+    radial-gradient(circle var(--inner-notch) at 0 0, #0000 98%, #000) 0 0 / 51% 51% no-repeat,
+    radial-gradient(circle var(--inner-notch) at 100% 0, #0000 98%, #000) 100% 0 / 51% 51% no-repeat,
+    radial-gradient(circle var(--inner-notch) at 0 100%, #0000 98%, #000) 0 100% / 51% 51% no-repeat,
+    radial-gradient(circle var(--inner-notch) at 100% 100%, #0000 98%, #000) 100% 100% / 51% 51% no-repeat;
+  mask:
+    radial-gradient(circle var(--inner-notch) at 0 0, #0000 98%, #000) 0 0 / 51% 51% no-repeat,
+    radial-gradient(circle var(--inner-notch) at 100% 0, #0000 98%, #000) 100% 0 / 51% 51% no-repeat,
+    radial-gradient(circle var(--inner-notch) at 0 100%, #0000 98%, #000) 0 100% / 51% 51% no-repeat,
+    radial-gradient(circle var(--inner-notch) at 100% 100%, #0000 98%, #000) 100% 100% / 51% 51% no-repeat;
+}
+
+/* Rank-specific: cell bg = stroke color, ::after bg = gradient fill */
 .lb-cell--gold {
-  background: linear-gradient(135deg, rgba(221, 175, 74, 0.3) 0%, rgba(138, 106, 30, 0.2) 100%);
+  background: #FFE18F;
+}
+.lb-cell--gold::after {
+  background: linear-gradient(270deg, #79552B 0%, #DDB04F 100%);
 }
 
 .lb-cell--silver {
-  background: linear-gradient(135deg, rgba(160, 174, 184, 0.2) 0%, rgba(90, 102, 112, 0.12) 100%);
+  background: #C2D6E0;
+}
+.lb-cell--silver::after {
+  background: linear-gradient(270deg, #3D4448 0%, #94A4AD 100%);
 }
 
 .lb-cell--bronze {
-  background: linear-gradient(135deg, rgba(184, 115, 51, 0.2) 0%, rgba(107, 63, 26, 0.12) 100%);
+  background: #AC632F;
+}
+.lb-cell--bronze::after {
+  background: linear-gradient(90deg, #8A6638 0%, #562E11 100%);
 }
 
 /* Default cells (rank 4+) */
 .lb-cell:not(.lb-cell--gold):not(.lb-cell--silver):not(.lb-cell--bronze):not(.lb-cell--you) {
-  background: rgba(255, 255, 255, 0.04);
+  background: #4B4B4B;
 }
 
-.lb-cell:hover {
+.lb-cell:not(.lb-cell--gold):not(.lb-cell--silver):not(.lb-cell--bronze):hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -269,6 +313,8 @@
   flex-shrink: 0;
   border: 2px solid rgba(255, 255, 255, 0.2);
   box-shadow: var(--shadow-elevation-1);
+  position: relative;
+  z-index: 1;
 }
 
 .lb-cell__avatar--gold {
@@ -294,6 +340,8 @@
 .lb-cell__info {
   flex: 1;
   min-width: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .lb-cell__name {
@@ -327,6 +375,8 @@
   flex-direction: column;
   align-items: flex-end;
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .lb-cell__xp {

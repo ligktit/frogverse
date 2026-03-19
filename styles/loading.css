@@ -13,16 +13,31 @@
 }
 
 #stageCurtain { z-index: 30; }
-#stageBlur    { z-index: 20; }
-#stageFrogs   { z-index: 10; }
+#stageFrogs   { z-index: 20; }
 
 /* ================================================================
-   CURTAIN
+   LOADING BACKGROUND (swirl pattern)
+   ================================================================ */
+.loading-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.loading-bg__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ================================================================
+   CURTAIN (left/right panels)
    ================================================================ */
 .curtain {
   position: absolute;
   inset: 0;
   display: flex;
+  z-index: 5;
   overflow: hidden;
 }
 
@@ -41,45 +56,72 @@
   object-fit: cover;
 }
 
-/* Valance (top drape overlay) */
-.curtain__valance {
+/* ================================================================
+   DRAPE OVERLAY (valance + side curtain drapes)
+   ================================================================ */
+.drape {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: auto;
-  z-index: 5;
+  inset: 0;
+  z-index: 10;
   will-change: transform;
   pointer-events: none;
 }
 
-.curtain__valance-img {
+.drape__side {
+  position: absolute;
+  top: 0;
+  width: 42%;
+  height: 100%;
+  z-index: 2;
+}
+
+.drape__side--left {
+  left: 0;
+}
+
+.drape__side--right {
+  right: 0;
+}
+
+.drape__side-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: drop-shadow(0 4px 50px rgba(0,0,0,0.5));
+}
+
+.drape__side-img--flipped {
+  transform: scaleX(-1);
+}
+
+.drape__valance {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 750px;
+  z-index: 3;
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
+}
+
+.drape__valance-img {
   width: 100%;
   height: auto;
   display: block;
 }
 
 /* ================================================================
-   LOADING BACKGROUND
+   BOTTOM GRADIENT OVERLAY
    ================================================================ */
-.loading-bg {
+.loading-gradient {
   position: absolute;
-  inset: 0;
-}
-
-.loading-bg__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.loading-bg--blurred .loading-bg__img {
-  filter: blur(12px);
-  transform: scale(1.05); /* Prevent blur edges from showing */
-}
-
-.loading-bg__img--frogs {
-  object-position: top center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 12%;
+  background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  z-index: 15;
+  pointer-events: none;
 }
 
 /* ================================================================
@@ -89,23 +131,103 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 5;
+  z-index: 12;
 }
 
 .loading-logo--center {
   top: 50%;
   transform: translate(-50%, -50%);
+  width: 84%;
 }
 
 .loading-logo--top {
-  top: 8%;
+  top: 4%;
+  width: 92%;
 }
 
 .loading-logo__img {
-  width: 260px;
-  max-width: 75vw;
+  width: 100%;
   height: auto;
   filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.5));
+}
+
+/* ================================================================
+   FROG CHARACTERS
+   ================================================================ */
+.frogs {
+  position: absolute;
+  top: 19.5%;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  z-index: 10;
+}
+
+.frog {
+  position: absolute;
+}
+
+.frog img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Frog Prince Consort — back right */
+.frog--prince-consort {
+  width: 137%;
+  height: auto;
+  left: -1%;
+  top: -4%;
+  z-index: 1;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+}
+
+/* Frog Princess — back left (flipped) */
+.frog--princess {
+  width: 140%;
+  height: auto;
+  left: -45%;
+  top: 0%;
+  z-index: 2;
+  transform: scaleX(-1);
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+}
+
+/* Frog Queen — right middle */
+.frog--queen {
+  width: 144%;
+  height: auto;
+  left: 13%;
+  top: 19%;
+  z-index: 3;
+  filter: drop-shadow(0 4px 30px rgba(0,0,0,1));
+}
+
+/* Frog Prince — left middle (flipped) */
+.frog--prince {
+  width: 158%;
+  height: auto;
+  left: -70%;
+  top: 15%;
+  z-index: 4;
+  transform: scaleX(-1);
+  filter: drop-shadow(0 4px 30px rgba(0,0,0,1));
+}
+
+/* Frog King — center front */
+.frog--king {
+  width: 190%;
+  height: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 25%;
+  z-index: 5;
+  filter: drop-shadow(0 4px 50px rgba(0,0,0,1));
+}
+
+.frog--king img {
+  object-fit: cover;
 }
 
 /* ================================================================
@@ -113,18 +235,24 @@
    ================================================================ */
 .loading-text {
   position: absolute;
-  bottom: 12%;
+  bottom: 6%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 5;
+  z-index: 20;
 }
 
 .loading-text__label {
-  font-family: var(--font-family-title);
-  font-size: 22px;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-primary);
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  font-family: 'Cormorant', serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.48px;
+  text-align: center;
+  background: linear-gradient(to bottom, #ddaf4a, #ffe18f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  filter: drop-shadow(0 4px 4px rgba(0,0,0,1));
   animation: loadingPulse 1.5s ease-in-out infinite;
 }
 

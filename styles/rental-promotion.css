@@ -4,8 +4,7 @@
 
 .promo-content {
   overflow-y: auto;
-  max-height: calc(100vh - 60px);
-  max-height: calc(100dvh - 60px);
+  max-height: calc(var(--app-height) - 60px);
   padding-bottom: 30px;
 }
 

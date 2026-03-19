@@ -10,7 +10,7 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  min-height: 100dvh;
+  min-height: var(--app-height);
   overflow: hidden;
   background: rgba(0, 0, 0, 0.70);
 }
@@ -35,6 +35,14 @@
   padding: 0 10px;
   height: 28px;
   margin-bottom: 16px;
+
+  /* Sticky header — stays visible while card-content scrolls */
+  position: sticky;
+  top: -26px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.85);
+  padding-top: 26px;
+  padding-bottom: 10px;
 }
 
 .card-header__title {

@@ -6,8 +6,7 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   /* game-frame border-top(20) + header(28) + header-mb(16) + game-frame border-bottom(20) + page-shell margin(11*2=22) = ~106 */
-  max-height: calc(100vh - 106px);
-  max-height: calc(100dvh - 106px);
+  max-height: calc(var(--app-height) - 106px);
   padding-bottom: 40px;
 }
 

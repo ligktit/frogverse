@@ -48,13 +48,13 @@
             </div>
 
             <!-- ============ FROG NAME & ID ============ -->
-            <div class="frog-detail-name" data-aos="fade-up">
+            <div class="frog-detail-name">
               <h2 class="frog-detail-name__title">Frog King</h2>
               <span class="frog-detail-name__id">#FROG-1AC40E</span>
             </div>
 
             <!-- ============ STATS GRID (2×4) ============ -->
-            <div class="frog-detail-panel" data-aos="fade-up" data-aos-delay="100">
+            <div class="frog-detail-panel">
               <div class="frog-stats-grid">
                 <!-- Activation Date -->
                 <div class="frog-stat-card">
@@ -94,7 +94,7 @@
                     <img src="../assets/icons/Star1.svg" alt="" class="frog-stat-card__icon">
                     <span class="frog-stat-card__label">XP</span>
                   </div>
-                  <span class="frog-stat-card__value text-primary">100%</span>
+                  <span class="frog-stat-card__value text-success">100%</span>
                 </div>
                 <!-- Health -->
                 <div class="frog-stat-card">
@@ -124,29 +124,32 @@
             </div>
 
             <!-- ============ REQUIRED TOKENS ============ -->
-            <div class="frog-detail-section" data-aos="fade-up" data-aos-delay="150">
+            <div class="frog-detail-section">
               <div class="frog-detail-section__row">
                 <img src="../assets/icons/Leaf.svg" alt="" class="frog-detail-section__icon">
                 <span class="frog-detail-section__label">Required Tokens:</span>
               </div>
             </div>
 
-            <!-- ============ PENDING + STATUS ============ -->
-            <div class="frog-detail-pending" data-aos="fade-up" data-aos-delay="200">
-              <span class="frog-detail-pending__label">$ Pending: <strong>0.00 USDT</strong></span>
-              <span class="frog-status-badge frog-status-badge--hungry">HUNGRY</span>
-            </div>
+            <!-- ============ PENDING + AUTO FEED CONTAINER ============ -->
+            <div class="frog-detail-status-container">
+              <!-- PENDING + STATUS -->
+              <div class="frog-detail-pending">
+                <span class="frog-detail-pending__label">$ Pending: <strong>0.00 USDT</strong></span>
+                <span class="frog-status-badge frog-status-badge--hungry">HUNGRY</span>
+              </div>
 
-            <!-- ============ AUTO FEED ACTIVE ============ -->
-            <div class="frog-detail-autofeed" data-aos="fade-up" data-aos-delay="250">
-              <span class="frog-detail-autofeed__label">Auto Feed Active</span>
-              <button class="frog-detail-autofeed__btn" id="btnAutoFeedSettings" aria-label="Auto Feed Settings" onclick="openModal('autoFeedSettingsModal')">
-                <img src="../assets/icons/gear.svg" alt="" class="frog-detail-autofeed__btn-icon">
-              </button>
+              <!-- AUTO FEED ACTIVE -->
+              <div class="frog-detail-autofeed">
+                <span class="frog-detail-autofeed__label">Auto Feed Active</span>
+                <button class="frog-detail-autofeed__btn" id="btnAutoFeedSettings" aria-label="Auto Feed Settings" onclick="openModal('autoFeedSettingsModal')">
+                  <img src="../assets/icons/gear.svg" alt="" class="frog-detail-autofeed__btn-icon">
+                </button>
+              </div>
             </div>
 
             <!-- ============ CYCLE INFO ============ -->
-            <div class="frog-detail-cycle" data-aos="fade-up" data-aos-delay="300">
+            <div class="frog-detail-cycle">
               <div class="frog-detail-cycle__header">
                 <div class="frog-detail-cycle__title">
                   <img src="../assets/icons/Gift.svg" alt="" class="frog-detail-cycle__icon">
@@ -156,19 +159,19 @@
               </div>
               <div class="frog-detail-cycle__info">
                 <div class="frog-detail-cycle__info-row">
-                  <span class="frog-detail-cycle__bullet">●</span>
+                  <img src="../assets/icons/time1.svg" alt="" class="frog-detail-cycle__info-icon">
                   <span>Next Claim Time: Apr 05, 2026 17:33</span>
                 </div>
                 <div class="frog-detail-cycle__info-row">
-                  <span class="frog-detail-cycle__star">★</span>
+                  <img src="../assets/icons/Star1.svg" alt="" class="frog-detail-cycle__info-icon">
                   <span>Start feeding to accumulate rewards</span>
                 </div>
               </div>
             </div>
 
             <!-- ============ BOTTOM ACTIONS ============ -->
-            <div class="frog-detail-actions" data-aos="fade-up" data-aos-delay="350">
-              <button class="game-btn game-btn--gold frog-detail-actions__btn" id="btnNftDetail">
+            <div class="frog-detail-actions">
+              <button class="game-btn game-btn--gray frog-detail-actions__btn" id="btnNftDetail">
                 <span class="game-btn__text">
                   <img src="../assets/icons/Doc.svg" alt="" class="frog-detail-actions__btn-icon">
                   NFT Detail

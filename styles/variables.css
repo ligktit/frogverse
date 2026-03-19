@@ -116,6 +116,7 @@
 
   /* ---- Layout ---- */
   --max-width-app: 430px;  /* support up to iPhone Pro Max */
+  --app-height: 100dvh;    /* overridden to 852px in desktop simulator */
   --safe-area-top: env(safe-area-inset-top, 0px);
   --safe-area-bottom: env(safe-area-inset-bottom, 0px);
 

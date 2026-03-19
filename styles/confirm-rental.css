@@ -62,7 +62,7 @@
 
 /* Override game-frame when used as popup */
 .popup-content .game-frame {
-  max-height: calc(100dvh - 48px);
+  max-height: calc(var(--app-height) - 48px);
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
