@@ -8,8 +8,8 @@
 .home-main {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  min-height: var(--app-height);
+  height: 100vh;
+  height: var(--app-height);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -65,17 +65,15 @@
   justify-content: center;
   align-items: flex-start;
   z-index: 1;
-  flex: 0 0 auto;
+  flex: 1 1 0;
   min-height: 0;
-  padding-top: calc(72.23 / 402 * 100%);
-  margin-bottom: calc(-200 / 402 * 100%);
   overflow: visible;
 }
 
 .frog-character__img {
   width: 171%;
   max-width: none;
-  height: auto;
+  max-height: calc(var(--app-height) * 0.75);
   object-fit: contain;
   filter: drop-shadow(0 10px 40px rgba(0, 0, 0, 0.5));
 }
@@ -122,7 +120,7 @@
   flex-shrink: 0;
   gap: calc(13 / 402 * 100%);
   padding: 0;
-  margin-top: 0;
+  margin-top: -8px;
   position: relative;
   z-index: 2;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
@@ -157,9 +155,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 10px calc(33 / 321 * 100%);
-  margin: 12px auto 0;
+  gap: 8px;
+  padding: 8px calc(33 / 321 * 100%);
+  margin: 8px auto 0;
   max-width: calc(321 / 402 * 100%);
   width: 100%;
   background: rgba(24, 24, 27, 0.75);
@@ -244,7 +242,7 @@
   z-index: 2;
   max-width: calc(321 / 402 * 100%);
   width: 100%;
-  margin: 12px auto 0;
+  margin: 8px auto 0;
   line-height: 1;
 }
 
@@ -292,8 +290,9 @@
   z-index: 2;
   max-width: calc(321 / 402 * 100%);
   width: 100%;
-  margin: 12px auto 0;
+  margin: 8px auto 0;
   height: 40px;
+  flex-shrink: 0;
 }
 
 .xp-section__header {
