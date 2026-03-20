@@ -10,6 +10,11 @@
   padding: 0 0 30px;
 }
 
+/* Prevent flex children from shrinking — let container scroll instead */
+.frog-detail-content > * {
+  flex-shrink: 0;
+}
+
 .frog-detail-content::-webkit-scrollbar { width: 4px; }
 .frog-detail-content::-webkit-scrollbar-track { background: transparent; }
 .frog-detail-content::-webkit-scrollbar-thumb { background: rgba(221,175,74,0.3); border-radius: 2px; }
@@ -130,8 +135,7 @@
   padding: 16px;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
-  margin: 0 12px;
-  overflow: hidden;
+  margin: 0 12px 10px;
 }
 
 /* ================================================================
@@ -186,7 +190,8 @@
    REQUIRED TOKENS SECTION
    ================================================================ */
 .frog-detail-section {
-  padding: 8px 12px;
+  padding: 0 12px;
+  margin-bottom: 10px;
 }
 
 .frog-detail-section__row {
@@ -216,11 +221,10 @@
    PENDING + STATUS BADGE
    ================================================================ */
 .frog-detail-status-container {
-  margin: 0 12px;
+  margin: 0 12px 10px;
   padding: 17px;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -273,6 +277,17 @@
   color: #51FF51;
   border: 1px solid rgba(81, 255, 81, 0.25);
 }
+/* ================================================================
+   ACTIVATE AUTO FEED BUTTON
+   ================================================================ */
+.frog-detail-activate-autofeed {
+  display: flex;
+}
+
+.frog-detail-activate-autofeed__btn {
+  flex: 1;
+  min-width: 0;
+}
 
 /* ================================================================
    AUTO FEED ACTIVE ROW
@@ -294,41 +309,22 @@
 .frog-detail-autofeed__btn {
   width: 140px;
   height: 40px;
-  border-radius: var(--radius-md);
-  border: none;
-  background: #269F38;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.frog-detail-autofeed__btn:hover {
-  background: #30b844;
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.frog-detail-autofeed__btn:active {
-  background: #1e8a2f;
-  transform: scale(0.95);
+  min-width: 0;
 }
 
 .frog-detail-autofeed__btn-icon {
   width: 24px;
   height: 24px;
-  filter: brightness(10);
 }
 
 /* ================================================================
    CYCLE INFO CARD
    ================================================================ */
 .frog-detail-cycle {
-  margin: 8px 12px;
+  margin: 0 12px 10px;
   padding: 13px 16px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  overflow: hidden;
 }
 
 .frog-detail-cycle__header {
@@ -493,9 +489,19 @@
 }
 
 .toggle-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background: none !important;
+  box-shadow: none !important;
 }
 
 .toggle-switch__slider {
@@ -504,6 +510,10 @@
   background: rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   transition: all var(--transition-fast);
+}
+
+.toggle-switch__slider::after {
+  display: none !important;
 }
 
 .toggle-switch__slider::before {
@@ -536,16 +546,21 @@
 
 .settings-dropdown__select {
   width: 100%;
-  background: rgba(255, 255, 255, 0.06);
+  background: #0d0d0d;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius-md);
   padding: 10px 14px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
   font-family: var(--font-family-primary);
   font-size: 13px;
   appearance: none;
   -webkit-appearance: none;
   cursor: pointer;
+}
+
+.settings-dropdown__select option {
+  background: #0d0d0d;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .settings-dropdown__select:focus {
@@ -559,4 +574,154 @@
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
+}
+
+/* ================================================================
+   NFT DETAIL — INFO CARDS
+   ================================================================ */
+.nft-info-card {
+  margin: 10px 12px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.nft-info-card__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px 8px;
+}
+
+.nft-info-card__header-icon {
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.nft-info-card__title {
+  font-family: 'Inter', var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.nft-info-card__body {
+  padding: 0 0 4px;
+}
+
+/* ================================================================
+   NFT DETAIL — INFO ROWS
+   ================================================================ */
+.nft-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nft-info-row:last-child {
+  border-bottom: none;
+}
+
+.nft-info-row__label {
+  font-family: 'Inter', var(--font-family-primary);
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.nft-info-row__value {
+  font-family: 'Inter', var(--font-family-primary);
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  text-align: right;
+}
+
+.nft-info-row__value--gold {
+  color: #DDAF4A;
+}
+
+.nft-info-row__value--green {
+  color: #51FF51;
+}
+
+.nft-info-row__value--blue {
+  color: #5B9BFF;
+}
+
+.nft-info-row__value--required {
+  color: #DDAF4A;
+  font-weight: 500;
+}
+
+/* ================================================================
+   NFT DETAIL — SEPARATOR ROW
+   ================================================================ */
+.nft-info-row--separator {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 12px;
+}
+
+.nft-info-row--separator .nft-info-row__label {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+/* ================================================================
+   NFT DETAIL — TOKEN ROWS
+   ================================================================ */
+.nft-info-row--token {
+  padding: 8px 16px;
+}
+
+.nft-token-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', var(--font-family-primary);
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.nft-token-label__icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ================================================================
+   NFT DETAIL — FEEDING HISTORY
+   ================================================================ */
+.nft-history-empty {
+  padding: 16px;
+  text-align: center;
+  font-family: 'Inter', var(--font-family-primary);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* ================================================================
+   NFT DETAIL — BOTTOM FEED BUTTON
+   ================================================================ */
+.nft-detail-bottom-action {
+  padding: 16px 12px 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.nft-detail-bottom-action__btn {
+  width: 100%;
+  max-width: 280px;
+}
+
+.nft-detail-bottom-action__btn .game-btn__text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
 }
