@@ -3,7 +3,7 @@
    ========================================================================== */
 
 /* ================================================================
-   PAGE-SPECIFIC OVERRIDES
+   PAGE OVERRIDES
    ================================================================ */
 #myFrogPage .game-frame {
   border-width: 10px;
@@ -18,7 +18,7 @@
 }
 
 /* ================================================================
-   FROG CARDS GRID — 2-column responsive grid
+   FROG CARDS GRID
    ================================================================ */
 .frog-cards-grid {
   display: grid;
@@ -31,10 +31,7 @@
   padding-bottom: 20px;
 }
 
-/* ================================================================
-   CARD OVERRIDES
-   ================================================================ */
-
+/* ---- Card overrides for responsive grid ---- */
 
 .frog-cards-grid .my-frog-card {
   position: relative;
@@ -43,7 +40,6 @@
   overflow: visible;
 }
 
-
 .frog-cards-grid .my-frog-card__avatar-area {
   position: relative;
   width: 100%;
@@ -51,24 +47,21 @@
   aspect-ratio: 1;
 }
 
-
 .frog-cards-grid .frog-rental-cell__frog-card {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-
 .frog-cards-grid .frog-rental-cell__thumb {
   position: absolute;
-  top: 3.66%;     /* 6/164 */
+  top: 3.66%;
   left: 3.66%;
-  width: 92.68%;  /* 152/164 */
+  width: 92.68%;
   height: 92.68%;
   object-fit: cover;
   z-index: 0;
 }
-
 
 .frog-cards-grid .frog-rental-cell__frame-outer {
   position: absolute;
@@ -78,7 +71,6 @@
   z-index: 1;
   pointer-events: none;
 }
-
 
 .frog-cards-grid .frog-rental-cell__frame-inner {
   position: absolute;
@@ -90,7 +82,6 @@
   pointer-events: none;
 }
 
-
 .frog-cards-grid .frog-rental-cell__badge {
   position: absolute;
   bottom: -18%;
@@ -101,16 +92,14 @@
   z-index: 3;
 }
 
-
 .frog-cards-grid .my-frog-card__emotion {
   position: absolute;
-  top: 8.5%;     /* 14/164 */
+  top: 8.5%;
   right: 8.5%;
-  width: 27.4%;  /* 45/164 */
+  width: 27.4%;
   height: 27.4%;
   z-index: 3;
 }
-
 
 .frog-cards-grid .my-frog-card__info {
   position: relative;
@@ -133,34 +122,23 @@
   padding: 24px 8px 12px;
 }
 
-
 .frog-cards-grid .my-frog-card__name {
   font-size: 14px;
 }
-
 
 .frog-cards-grid .my-frog-card__id {
   font-size: 10px;
 }
 
 /* ================================================================
-   SCROLLBAR STYLING
+   SCROLLBAR
    ================================================================ */
-.frog-cards-grid::-webkit-scrollbar {
-  width: 4px;
-}
-
-.frog-cards-grid::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.frog-cards-grid::-webkit-scrollbar-thumb {
-  background: rgba(221, 175, 74, 0.3);
-  border-radius: 2px;
-}
+.frog-cards-grid::-webkit-scrollbar { width: 4px; }
+.frog-cards-grid::-webkit-scrollbar-track { background: transparent; }
+.frog-cards-grid::-webkit-scrollbar-thumb { background: rgba(221, 175, 74, 0.3); border-radius: 2px; }
 
 /* ================================================================
-   MY FROG CARD — Interactive hover states
+   HOVER STATES
    ================================================================ */
 .frog-cards-grid .my-frog-card {
   cursor: pointer;

@@ -10,8 +10,7 @@
   padding: 0 0 30px;
 }
 
-/* Prevent flex children from shrinking — let container scroll instead */
-.frog-detail-content>* {
+.frog-detail-content > * {
   flex-shrink: 0;
 }
 
@@ -31,6 +30,22 @@
 /* ================================================================
    HERO
    ================================================================ */
+
+.card-header--detail {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: transparent;
+  padding: 16px 20px;
+  margin-bottom: 0;
+  height: auto;
+  transition: background 0.25s ease;
+}
+
+.card-header--detail.is-scrolled {
+  background: rgba(0, 0, 0, 0.85);
+}
+
 .frog-detail-hero {
   position: relative;
   width: 100%;
@@ -38,6 +53,7 @@
   overflow: visible;
   border-radius: var(--radius-md) var(--radius-md) 0 0;
   flex-shrink: 0;
+  margin-top: -60px;
 }
 
 .frog-detail-hero__nav {

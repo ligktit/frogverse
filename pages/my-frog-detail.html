@@ -20,19 +20,19 @@
     <main class="page-shell" id="frogDetailPage">
       <div class="game-frame card-content frog-detail-content">
 
+            <!-- Header -->
+            <div class="card-header card-header--detail">
+              <button class="hex-btn hex-btn--back" id="btnBack" aria-label="Back" onclick="history.back()">
+                <img src="../assets/buttons/HexTech_Back.svg" alt="" class="hex-btn__asset" aria-hidden="true">
+              </button>
+              <h1 class="card-header__title">My Frogs</h1>
+              <button class="hex-btn" id="btnClose" aria-label="Close">
+                <img src="../assets/buttons/HexTech_Close.svg" alt="" class="hex-btn__asset" aria-hidden="true">
+              </button>
+            </div>
+
             <!-- ============ HERO: FROG IMAGE ============ -->
             <div class="frog-detail-hero" id="frogHero">
-              <!-- Header -->
-              <div class="card-header card-header--transparent">
-                <button class="hex-btn hex-btn--back" id="btnBack" aria-label="Back" onclick="history.back()">
-                  <img src="../assets/buttons/HexTech_Back.svg" alt="" class="hex-btn__asset" aria-hidden="true">
-                </button>
-                <h1 class="card-header__title">My Frogs</h1>
-                <button class="hex-btn" id="btnClose" aria-label="Close">
-                  <img src="../assets/buttons/HexTech_Close.svg" alt="" class="hex-btn__asset" aria-hidden="true">
-                </button>
-              </div>
-
               <!-- Frog Image -->
               <div class="frog-detail-hero__image">
                 <img src="../assets/thumbs/avt-king.png" alt="Frog King" class="frog-detail-hero__img">
@@ -266,19 +266,19 @@
       <!-- ============ NFT DETAIL PANEL (hidden by default) ============ -->
       <div class="game-frame card-content frog-detail-content" id="nftDetailPanel" style="display: none;">
 
+            <!-- Header -->
+            <div class="card-header card-header--detail">
+              <button class="hex-btn hex-btn--back" id="btnNftBack" aria-label="Back">
+                <img src="../assets/buttons/HexTech_Back.svg" alt="" class="hex-btn__asset" aria-hidden="true">
+              </button>
+              <h1 class="card-header__title">Frog Details</h1>
+              <button class="hex-btn" id="btnNftClose" aria-label="Close">
+                <img src="../assets/buttons/HexTech_Close.svg" alt="" class="hex-btn__asset" aria-hidden="true">
+              </button>
+            </div>
+
             <!-- ============ HERO: FROG IMAGE ============ -->
             <div class="frog-detail-hero" id="nftHero">
-              <!-- Header -->
-              <div class="card-header card-header--transparent">
-                <button class="hex-btn hex-btn--back" id="btnNftBack" aria-label="Back">
-                  <img src="../assets/buttons/HexTech_Back.svg" alt="" class="hex-btn__asset" aria-hidden="true">
-                </button>
-                <h1 class="card-header__title">Frog Details</h1>
-                <button class="hex-btn" id="btnNftClose" aria-label="Close">
-                  <img src="../assets/buttons/HexTech_Close.svg" alt="" class="hex-btn__asset" aria-hidden="true">
-                </button>
-              </div>
-
               <!-- Frog Image -->
               <div class="frog-detail-hero__image">
                 <img src="../assets/thumbs/avt-king.png" alt="Frog King" class="frog-detail-hero__img">
@@ -564,6 +564,17 @@
   <script src="../scripts/game-btn.js"></script>
   <script src="../scripts/main.js"></script>
   <script>
+    // Sticky header — add dark bg once scrolled past the hero
+    document.querySelectorAll('.frog-detail-content').forEach(panel => {
+      const header = panel.querySelector('.card-header--detail');
+      const hero = panel.querySelector('.frog-detail-hero');
+      if (!header || !hero) return;
+      panel.addEventListener('scroll', () => {
+        const threshold = hero.offsetHeight * 0.6;
+        header.classList.toggle('is-scrolled', panel.scrollTop > threshold);
+      });
+    });
+
     // Modal open / close
     function openModal(id) {
       document.getElementById(id).classList.add('modal-overlay--visible');
