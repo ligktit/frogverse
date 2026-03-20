@@ -66,9 +66,9 @@
               </div>
 
               <div class="dash-level-hero">
-                <!-- Cup icon -->
+                <!-- Cup icon (varies by level) -->
                 <div class="dash-level-hero__icon">
-                  <img src="../assets/icons/3dcup.svg" alt="Trophy" class="dash-level-hero__icon-img">
+                  <img src="" alt="Trophy" class="dash-level-hero__icon-img" id="levelCupIcon">
                 </div>
 
                 <!-- XP info -->
@@ -177,6 +177,27 @@
     document.getElementById('btnClose').addEventListener('click', () => {
       window.location.href = 'home.html';
     });
+
+    // Cup icon variant based on level
+    (function() {
+      const levelText = document.querySelector('.dash-level-stats__level');
+      const cupIcon = document.getElementById('levelCupIcon');
+      if (!levelText || !cupIcon) return;
+
+      const levelNum = parseInt(levelText.textContent.replace(/\D/g, ''), 10) || 1;
+
+      // Map: levels 1-2 → Cup1 (gold), 3-4 → Cup2 (silver), 5+ → Cup3 (bronze)
+      let cupFile;
+      if (levelNum <= 2) {
+        cupFile = 'Cup1 1.svg';
+      } else if (levelNum <= 4) {
+        cupFile = 'Cup2 1.svg';
+      } else {
+        cupFile = 'Cup3 1.svg';
+      }
+
+      cupIcon.src = '../assets/icons/' + cupFile;
+    })();
   </script>
 </body>
 </html>

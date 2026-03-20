@@ -31,6 +31,7 @@
 .wallet-balance {
   text-align: center;
   padding: 20px 0 24px;
+  flex-shrink: 0;
 }
 
 .wallet-balance__label {
@@ -69,6 +70,7 @@
    ================================================================ */
 .wallet-totals {
   padding: 16px 0;
+  flex-shrink: 0;
 }
 
 /* ================================================================
@@ -76,6 +78,7 @@
    ================================================================ */
 .wallet-withdraw {
   padding: 8px 0 24px;
+  flex-shrink: 0;
 }
 
 .wallet-withdraw__btn {
@@ -136,6 +139,7 @@
   flex-direction: column;
   gap: 8px;
   margin-top: 8px;
+  flex-shrink: 0;
 }
 
 .wallet-activity__item {

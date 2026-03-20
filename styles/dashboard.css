@@ -3,124 +3,149 @@
    ========================================================================== */
 
 /* ================================================================
-   DASHBOARD STATS
+   DASHBOARD CONTENT — Override card-content for scrollable area
    ================================================================ */
-.dash-stat {
-  display: flex;
-  align-items: center;
+.dash-content {
   gap: 8px;
-  padding: 12px;
-  background: rgba(255, 255, 255, 0.1);
+  overflow-y: auto;
+}
+
+.dash-content .section-card {
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
-}
-
-.dash-stat__icon {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 12px 15px;
   flex-shrink: 0;
-}
-
-.dash-stat__icon img {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-}
-
-.dash-stat__text {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.dash-stat__value-row {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.dash-stat__value {
-  font-family: var(--font-family-primary);
-  font-size: 14px;
-  font-weight: var(--font-weight-bold);
-  color: #fff;
-  line-height: 1;
-}
-
-.dash-stat__unit {
-  font-family: var(--font-family-primary);
-  font-size: 10px;
-  color: var(--color-primary);
-  line-height: 1;
-}
-
-.dash-stat__label {
-  font-family: var(--font-family-primary);
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.5);
-  line-height: 1;
 }
 
 /* ================================================================
-   LEVEL CARD
+   OVERVIEW STATS GRID — 2x2 grid
    ================================================================ */
-.level-card {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 12px 14px;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.level-card__badge {
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
-}
-
-.level-card__badge img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.level-card__info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+.dash-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 6px;
 }
 
-.level-card__label-row {
+.dash-stat-card {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  gap: 4px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
 }
 
-.level-card__level {
-  font-family: var(--font-family-display);
-  font-size: 14px;
-  font-weight: var(--font-weight-bold);
-  color: #fff;
-  letter-spacing: -0.28px;
-}
-
-.level-card__xp {
+.dash-stat-card__label {
   font-family: var(--font-family-primary);
   font-size: 10px;
+  font-weight: var(--font-weight-regular);
   color: rgba(255, 255, 255, 0.5);
+  line-height: normal;
+}
+
+.dash-stat-card__value {
+  font-family: var(--font-family-primary);
+  font-size: 12px;
+  font-weight: var(--font-weight-bold);
+  color: #fff;
+  line-height: normal;
 }
 
 /* ================================================================
-   XP BAR
+   LEVEL & XP SECTION
    ================================================================ */
-.xp-bar {
+.dash-level-card {
+  padding: 27px 15px;
+}
+
+.dash-level-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.dash-details-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-family-primary);
+  font-size: 12px;
+  font-weight: var(--font-weight-bold);
+  color: #fff;
+  text-decoration: none;
+}
+
+.dash-details-link:hover {
+  text-decoration: underline;
+}
+
+/* ================================================================
+   LEVEL HERO — Cup + XP info
+   ================================================================ */
+.dash-level-hero {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.dash-level-hero__icon {
+  flex-shrink: 0;
+  width: 97px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 0 2px;
+}
+
+.dash-level-hero__icon-img {
+  width: 54px;
+  height: 49px;
+  object-fit: contain;
+}
+
+.dash-level-hero__xp {
+  flex: 1;
+  min-width: 0;
+}
+
+.dash-level-hero__xp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.dash-level-hero__xp-label {
+  font-family: var(--font-family-primary);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: normal;
+}
+
+.dash-level-hero__xp-value {
+  font-family: var(--font-family-primary);
+  font-size: 10px;
+  color: #fff;
+  text-align: right;
+  line-height: normal;
+}
+
+/* ================================================================
+   XP PROGRESS BAR
+   ================================================================ */
+.dash-xp-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dash-xp-bar__track {
   width: 100%;
   height: 6px;
   background: rgba(255, 255, 255, 0.1);
@@ -128,87 +153,175 @@
   overflow: hidden;
 }
 
-.xp-bar__fill {
+.dash-xp-bar__fill {
   height: 100%;
   background: linear-gradient(90deg, #51ff51 0%, #268026 100%);
   border-radius: 3px;
   transition: width var(--transition-normal);
 }
 
+.dash-xp-bar__labels {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-family-primary);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: normal;
+}
+
+.dash-xp-bar__level-badge {
+  background: #ffbb28;
+  color: #000;
+  font-family: var(--font-family-primary);
+  font-size: 7px;
+  font-weight: var(--font-weight-regular);
+  padding: 2px 5px;
+  border-radius: 10px;
+  text-align: center;
+  white-space: nowrap;
+}
+
 /* ================================================================
-   PENDING REWARDS LIST
+   LEVEL STATS — Level + mini stats grid
    ================================================================ */
-.pending-list {
+.dash-level-stats {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.dash-level-stats__main {
+  flex-shrink: 0;
+  width: 97px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0 2px;
+}
+
+.dash-level-stats__level {
+  font-family: var(--font-family-primary);
+  font-size: 10px;
+  font-weight: var(--font-weight-medium);
+  color: #fff;
+  text-align: center;
+  line-height: normal;
+}
+
+.dash-level-stats__role {
+  font-family: var(--font-family-primary);
+  font-size: 10px;
+  font-weight: var(--font-weight-regular);
+  color: #fff;
+  text-align: center;
+  line-height: normal;
+}
+
+/* ================================================================
+   MINI STATS — 2x2 grid for Level Bonus, Streak, etc.
+   ================================================================ */
+.dash-mini-stats {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+
+.dash-mini-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 12px 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+  min-height: 49px;
+}
+
+.dash-mini-stat__label {
+  font-family: var(--font-family-primary);
+  font-size: 10px;
+  font-weight: var(--font-weight-regular);
+  color: rgba(255, 255, 255, 0.5);
+  line-height: normal;
+}
+
+.dash-mini-stat__value {
+  font-family: var(--font-family-primary);
+  font-size: 12px;
+  font-weight: var(--font-weight-bold);
+  color: #fff;
+  line-height: normal;
+}
+
+/* ================================================================
+   PENDING REWARDS
+   ================================================================ */
+.dash-rewards-list {
   display: flex;
   flex-direction: column;
 }
 
-.pending-item {
+.dash-reward-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.pending-item:last-child {
+.dash-reward-item:last-child {
   border-bottom: none;
 }
 
-.pending-item__label {
+.dash-reward-item__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.dash-reward-item__date {
   font-family: var(--font-family-primary);
   font-size: 12px;
+  font-weight: var(--font-weight-regular);
+  color: #fff;
+  line-height: 17px;
+}
+
+.dash-reward-item__breakdown {
+  font-family: var(--font-family-primary);
+  font-size: 12px;
+  font-weight: var(--font-weight-regular);
   color: rgba(255, 255, 255, 0.5);
+  line-height: 17px;
 }
 
-.pending-item__value {
-  font-family: var(--font-family-primary);
-  font-size: 14px;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-primary);
+.dash-reward-item__value {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 0;
 }
 
-/* ================================================================
-   DASHBOARD GRID
-   ================================================================ */
-.dash-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-.dash-grid--full {
-  grid-template-columns: 1fr;
-}
-
-/* ================================================================
-   DASHBOARD SECTION
-   ================================================================ */
-.dash-section {
-  margin-bottom: 16px;
-}
-
-.dash-section__title {
+.dash-reward-item__amount {
   font-family: var(--font-family-primary);
   font-size: 12px;
-  font-weight: var(--font-weight-bold);
-  color: #ddaf4a;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 8px;
+  font-weight: var(--font-weight-regular);
+  color: #ffbb28;
+  line-height: 17px;
 }
 
-/* ================================================================
-   VIEW ALL LINK
-   ================================================================ */
-.dash-view-all {
+.dash-reward-item__days {
   font-family: var(--font-family-primary);
   font-size: 12px;
-  color: var(--color-secondary);
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.dash-view-all:hover {
-  text-decoration: underline;
+  font-weight: var(--font-weight-regular);
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 17px;
 }

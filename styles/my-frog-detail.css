@@ -11,13 +11,22 @@
 }
 
 /* Prevent flex children from shrinking — let container scroll instead */
-.frog-detail-content > * {
+.frog-detail-content>* {
   flex-shrink: 0;
 }
 
-.frog-detail-content::-webkit-scrollbar { width: 4px; }
-.frog-detail-content::-webkit-scrollbar-track { background: transparent; }
-.frog-detail-content::-webkit-scrollbar-thumb { background: rgba(221,175,74,0.3); border-radius: 2px; }
+.frog-detail-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.frog-detail-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.frog-detail-content::-webkit-scrollbar-thumb {
+  background: rgba(221, 175, 74, 0.3);
+  border-radius: 2px;
+}
 
 /* ================================================================
    HERO
@@ -28,6 +37,7 @@
   aspect-ratio: 1 / 1;
   overflow: visible;
   border-radius: var(--radius-md) var(--radius-md) 0 0;
+  flex-shrink: 0;
 }
 
 .frog-detail-hero__nav {
@@ -70,7 +80,7 @@
   left: 0;
   right: 0;
   height: 60%;
-  background: linear-gradient(to top, rgba(23,37,26,1) 0%, rgba(23,37,26,0) 100%);
+  background: linear-gradient(to top, rgba(23, 37, 26, 1) 0%, rgba(23, 37, 26, 0) 100%);
   z-index: 2;
   pointer-events: none;
 }
@@ -107,6 +117,7 @@
 .frog-detail-name {
   text-align: center;
   padding: 20px 20px 0;
+  flex-shrink: 0;
 }
 
 .frog-detail-name__title {
@@ -136,6 +147,7 @@
   background: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   margin: 0 12px 10px;
+  flex-shrink: 0;
 }
 
 /* ================================================================
@@ -164,12 +176,6 @@
   justify-content: center;
 }
 
-.frog-stat-card__icon {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
-}
-
 .frog-stat-card__label {
   font-family: 'Inter', var(--font-family-primary);
   font-size: 12px;
@@ -190,8 +196,9 @@
    REQUIRED TOKENS SECTION
    ================================================================ */
 .frog-detail-section {
-  padding: 0 12px;
+  padding: 8px 12px;
   margin-bottom: 10px;
+  flex-shrink: 0;
 }
 
 .frog-detail-section__row {
@@ -225,6 +232,7 @@
   padding: 17px;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -277,6 +285,7 @@
   color: #51FF51;
   border: 1px solid rgba(81, 255, 81, 0.25);
 }
+
 /* ================================================================
    ACTIVATE AUTO FEED BUTTON
    ================================================================ */
@@ -325,6 +334,7 @@
   padding: 13px 16px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
+  flex-shrink: 0;
 }
 
 .frog-detail-cycle__header {
@@ -399,6 +409,7 @@
   gap: 10px;
   padding: 12px 12px 8px;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .frog-detail-actions__btn {
@@ -528,11 +539,11 @@
   transition: transform var(--transition-fast);
 }
 
-.toggle-switch input:checked + .toggle-switch__slider {
+.toggle-switch input:checked+.toggle-switch__slider {
   background: var(--color-primary);
 }
 
-.toggle-switch input:checked + .toggle-switch__slider::before {
+.toggle-switch input:checked+.toggle-switch__slider::before {
   transform: translateX(20px);
 }
 
