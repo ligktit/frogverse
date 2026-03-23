@@ -286,7 +286,8 @@
 
 .step-indicator__circle--done {
   border-color: #51FF51;
-  color: #51FF51;
+  background: #51FF51;
+  color: #000;
 }
 
 .step-indicator__label {
@@ -304,11 +305,11 @@
 }
 
 .step-indicator__line {
-  width: 67px;
+  flex: 1;
   height: 24px;
   display: flex;
   align-items: center;
-  flex-shrink: 0;
+  min-width: 0;
 }
 
 .step-indicator__line::after {

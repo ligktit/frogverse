@@ -523,6 +523,7 @@
   font-weight: var(--font-weight-medium);
   color: #fff;
   display: block;
+  white-space: nowrap;
 }
 
 .nft-list-item__amount-sub {

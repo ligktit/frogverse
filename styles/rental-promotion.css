@@ -6,12 +6,22 @@
   overflow-y: auto;
   flex: 1;
   min-height: 0;
-  padding-bottom: 30px;
+  padding-bottom: calc(30px + env(safe-area-inset-bottom, 0px));
+  scrollbar-width: none;
 }
 
-.promo-content::-webkit-scrollbar { width: 4px; }
-.promo-content::-webkit-scrollbar-track { background: transparent; }
-.promo-content::-webkit-scrollbar-thumb { background: rgba(221,175,74,0.3); border-radius: 2px; }
+.promo-content::-webkit-scrollbar { display: none; }
+
+/* Sticky header: Close + Step Indicator */
+.promo-header {
+  position: sticky;
+  top: -26px;
+  z-index: 10;
+  background: #000;
+  padding-top: 26px;
+  padding-bottom: 12px;
+  margin-bottom: 4px;
+}
 
 /* ================================================================
    STEP CONTENT
@@ -22,7 +32,7 @@
   font-weight: var(--font-weight-bold);
   color: #fff;
   text-align: center;
-  margin: 20px 0 8px;
+  margin: var(--space-4) 0 var(--space-2);
 }
 
 .promo-step__desc {
@@ -31,12 +41,32 @@
   color: rgba(255, 255, 255, 0.5);
   text-align: center;
   line-height: 1.4;
-  margin: 0 0 20px;
+  margin: 0 0 var(--space-4);
 }
 
 .promo-step__continue {
   width: 100%;
-  margin-top: 16px;
+  margin-top: var(--space-4);
+}
+
+.promo-step__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: var(--space-4);
+}
+
+.promo-step__actions .game-btn {
+  flex: 1;
+}
+
+.promo-step__actions--stacked {
+  flex-direction: column;
+  gap: 8px;
+}
+
+.promo-step__actions--stacked .game-btn {
+  width: 100%;
+  min-width: 0;
 }
 
 /* ================================================================
@@ -50,7 +80,7 @@
   border: 1px solid rgba(221, 175, 74, 0.3);
   border-radius: var(--radius-md);
   background: rgba(221, 175, 74, 0.08);
-  margin-bottom: 20px;
+  margin-bottom: var(--space-4);
 }
 
 .promo-info-box__icon {
@@ -154,21 +184,40 @@
   line-height: 1.4;
 }
 
-/* Radio styling for circle-check in NFT list */
+/* Radio styling — uses circle-check component spec */
 .nft-list-item input[type="radio"] {
   appearance: none;
   -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid #666;
   border-radius: 50%;
   background: transparent;
   cursor: pointer;
   transition: all var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .nft-list-item input[type="radio"]:checked {
-  border-color: #269F38;
-  background: #269F38;
-  box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.4);
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3), inset 0 0 0 2px #000;
+}
+
+/* NFT list-item backgrounds */
+.nft-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nft-list .nft-list-item {
+  background: #1A1A1A;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+}
+
+.nft-list .nft-list-item:has(input[type="radio"]:checked) {
+  background: #272727;
 }

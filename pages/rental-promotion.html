@@ -21,30 +21,31 @@
     <main class="page-shell" id="promoPage">
       <div class="game-frame card-content promo-content">
 
-            <!-- Close button (top-right) -->
-            <div class="flex-between mb-8" style="justify-content:flex-end;">
-              <button class="hex-btn" id="btnClose" aria-label="Close">
-                <svg class="hex-btn__icon" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 1L11 11M11 1L1 11" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </button>
-            </div>
+            <!-- Sticky header: Close + Step Indicator -->
+            <div class="promo-header">
+              <div class="flex-between mb-8" style="justify-content:flex-end;">
+                <button class="hex-btn" id="btnClose" aria-label="Close">
+                  <svg class="hex-btn__icon" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L11 11M11 1L1 11" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </button>
+              </div>
 
-            <!-- ============ STEP INDICATOR ============ -->
-            <div class="step-indicator">
-              <div class="step-indicator__item">
-                <div class="step-indicator__circle step-indicator__circle--active" id="step1">1</div>
-                <span class="step-indicator__label step-indicator__label--active">Choose<br>Frog</span>
-              </div>
-              <div class="step-indicator__line"></div>
-              <div class="step-indicator__item">
-                <div class="step-indicator__circle" id="step2">2</div>
-                <span class="step-indicator__label">Confirm</span>
-              </div>
-              <div class="step-indicator__line"></div>
-              <div class="step-indicator__item">
-                <div class="step-indicator__circle" id="step3">3</div>
-                <span class="step-indicator__label">Done</span>
+              <div class="step-indicator">
+                <div class="step-indicator__item">
+                  <div class="step-indicator__circle step-indicator__circle--active" id="step1">1</div>
+                  <span class="step-indicator__label step-indicator__label--active">Choose<br>Frog</span>
+                </div>
+                <div class="step-indicator__line"></div>
+                <div class="step-indicator__item">
+                  <div class="step-indicator__circle" id="step2">2</div>
+                  <span class="step-indicator__label">Confirm</span>
+                </div>
+                <div class="step-indicator__line"></div>
+                <div class="step-indicator__item">
+                  <div class="step-indicator__circle" id="step3">3</div>
+                  <span class="step-indicator__label">Done</span>
+                </div>
               </div>
             </div>
 
@@ -68,9 +69,9 @@
               <h4 class="promo-section-label">NFT FROG LIST</h4>
 
               <div class="nft-list">
-                <label class="nft-list-item">
+                <label class="nft-list-item" data-frog-name="Princess Frog" data-frog-img="../assets/thumbs/avt-princess.png" data-frog-price="120.00" data-frog-total="600.00">
                   <div class="nft-list-item__avatar">
-                    <img src="../assets/thumbs/avatar.webp" alt="Princess Frog">
+                    <img src="../assets/thumbs/avt-princess.png" alt="Princess Frog">
                   </div>
                   <div class="nft-list-item__info">
                     <span class="nft-list-item__name">Princess Frog</span>
@@ -85,76 +86,76 @@
                   </div>
                 </label>
 
-                <label class="nft-list-item">
+                <label class="nft-list-item" data-frog-name="Queen Frog" data-frog-img="../assets/thumbs/avt-queen.png" data-frog-price="150.00" data-frog-total="750.00">
                   <div class="nft-list-item__avatar">
-                    <img src="../assets/thumbs/avatar.webp" alt="Princess Frog">
+                    <img src="../assets/thumbs/avt-queen.png" alt="Queen Frog">
                   </div>
                   <div class="nft-list-item__info">
-                    <span class="nft-list-item__name">Princess Frog</span>
+                    <span class="nft-list-item__name">Queen Frog</span>
                     <span class="nft-list-item__desc">5+1 Frog</span>
                   </div>
                   <div class="nft-list-item__price">
-                    <span class="nft-list-item__amount">600.00 <small>USDT</small></span>
-                    <span class="nft-list-item__amount-sub">5 × 120.00</span>
+                    <span class="nft-list-item__amount">750.00 <small>USDT</small></span>
+                    <span class="nft-list-item__amount-sub">5 × 150.00</span>
                   </div>
                   <div class="nft-list-item__check">
-                    <input type="radio" name="frogType" class="circle-check" value="princess2">
+                    <input type="radio" name="frogType" class="circle-check" value="queen">
                   </div>
                 </label>
 
-                <label class="nft-list-item">
+                <label class="nft-list-item" data-frog-name="King Frog" data-frog-img="../assets/thumbs/avt-king.png" data-frog-price="200.00" data-frog-total="1000.00">
                   <div class="nft-list-item__avatar">
-                    <img src="../assets/thumbs/avatar.webp" alt="Princess Frog">
+                    <img src="../assets/thumbs/avt-king.png" alt="King Frog">
                   </div>
                   <div class="nft-list-item__info">
-                    <span class="nft-list-item__name">Princess Frog</span>
+                    <span class="nft-list-item__name">King Frog</span>
                     <span class="nft-list-item__desc">5+1 Frog</span>
                   </div>
                   <div class="nft-list-item__price">
-                    <span class="nft-list-item__amount">600.00 <small>USDT</small></span>
-                    <span class="nft-list-item__amount-sub">5 × 120.00</span>
+                    <span class="nft-list-item__amount">1000.00 <small>USDT</small></span>
+                    <span class="nft-list-item__amount-sub">5 × 200.00</span>
                   </div>
                   <div class="nft-list-item__check">
-                    <input type="radio" name="frogType" class="circle-check" value="princess3">
+                    <input type="radio" name="frogType" class="circle-check" value="king">
                   </div>
                 </label>
 
-                <label class="nft-list-item">
+                <label class="nft-list-item" data-frog-name="Prince Frog" data-frog-img="../assets/thumbs/avt-prince.png" data-frog-price="180.00" data-frog-total="900.00">
                   <div class="nft-list-item__avatar">
-                    <img src="../assets/thumbs/avatar.webp" alt="Princess Frog">
+                    <img src="../assets/thumbs/avt-prince.png" alt="Prince Frog">
                   </div>
                   <div class="nft-list-item__info">
-                    <span class="nft-list-item__name">Princess Frog</span>
+                    <span class="nft-list-item__name">Prince Frog</span>
                     <span class="nft-list-item__desc">5+1 Frog</span>
                   </div>
                   <div class="nft-list-item__price">
-                    <span class="nft-list-item__amount">600.00 <small>USDT</small></span>
-                    <span class="nft-list-item__amount-sub">5 × 120.00</span>
+                    <span class="nft-list-item__amount">900.00 <small>USDT</small></span>
+                    <span class="nft-list-item__amount-sub">5 × 180.00</span>
                   </div>
                   <div class="nft-list-item__check">
-                    <input type="radio" name="frogType" class="circle-check" value="princess4">
+                    <input type="radio" name="frogType" class="circle-check" value="prince">
                   </div>
                 </label>
 
-                <label class="nft-list-item">
+                <label class="nft-list-item" data-frog-name="Consort Frog" data-frog-img="../assets/thumbs/avt-consort.png" data-frog-price="160.00" data-frog-total="800.00">
                   <div class="nft-list-item__avatar">
-                    <img src="../assets/thumbs/avatar.webp" alt="Princess Frog">
+                    <img src="../assets/thumbs/avt-consort.png" alt="Consort Frog">
                   </div>
                   <div class="nft-list-item__info">
-                    <span class="nft-list-item__name">Princess Frog</span>
+                    <span class="nft-list-item__name">Consort Frog</span>
                     <span class="nft-list-item__desc">5+1 Frog</span>
                   </div>
                   <div class="nft-list-item__price">
-                    <span class="nft-list-item__amount">600.00 <small>USDT</small></span>
-                    <span class="nft-list-item__amount-sub">5 × 120.00</span>
+                    <span class="nft-list-item__amount">800.00 <small>USDT</small></span>
+                    <span class="nft-list-item__amount-sub">5 × 160.00</span>
                   </div>
                   <div class="nft-list-item__check">
-                    <input type="radio" name="frogType" class="circle-check" value="princess5">
+                    <input type="radio" name="frogType" class="circle-check" value="consort">
                   </div>
                 </label>
               </div>
 
-              <button class="game-btn game-btn--green promo-step__continue" id="btnContinue" onclick="goToStep(2)">
+              <button class="game-btn game-btn--green game-btn--disabled promo-step__continue" id="btnContinue" disabled>
                 <span class="game-btn__text">Continue</span>
               </button>
             </div>
@@ -166,10 +167,10 @@
               <!-- Selected Frog -->
               <div class="nft-list-item nft-list-item--bordered mb-16">
                 <div class="nft-list-item__avatar">
-                  <img src="../assets/thumbs/avatar.webp" alt="Princess Frog">
+                  <img src="../assets/thumbs/avt-princess.png" alt="" id="s2FrogImg">
                 </div>
                 <div class="nft-list-item__info">
-                  <span class="nft-list-item__name">Princess Frog</span>
+                  <span class="nft-list-item__name" id="s2FrogName">Princess Frog</span>
                   <span class="nft-list-item__desc">365 Days</span>
                 </div>
               </div>
@@ -184,12 +185,12 @@
                 <div class="info-row">
                   <img src="../assets/icons/Coin.svg" alt="" class="info-row__icon">
                   <span class="info-row__label">Unit Price</span>
-                  <span class="info-row__value text-primary-orange">120.00 USDT</span>
+                  <span class="info-row__value text-primary-orange" id="s2UnitPrice">120.00 USDT</span>
                 </div>
                 <div class="info-row">
                   <img src="../assets/icons/card.svg" alt="" class="info-row__icon">
                   <span class="info-row__label">Total Payment</span>
-                  <span class="info-row__value text-primary">600.00 USDT</span>
+                  <span class="info-row__value text-primary" id="s2TotalPayment">600.00 USDT</span>
                 </div>
                 <div class="info-row">
                   <img src="../assets/icons/Gift.svg" alt="" class="info-row__icon">
@@ -204,7 +205,7 @@
               </div>
 
               <!-- Notice -->
-              <div class="promo-notice">
+              <div class="promo-notice" id="s2Notice">
                 Princess Frog will be added to your wallet after successful payment.
               </div>
 
@@ -215,9 +216,14 @@
               </div>
 
               <!-- Actions -->
-              <button class="game-btn game-btn--gold game-btn--disabled promo-step__continue" id="btnConfirmPayment" disabled>
-                <span class="game-btn__text">Rent</span>
-              </button>
+              <div class="promo-step__actions promo-step__actions--stacked">
+                <button class="game-btn game-btn--gold game-btn--disabled" id="btnConfirmPayment" disabled>
+                  <span class="game-btn__text">Confirm Payment</span>
+                </button>
+                <button class="game-btn game-btn--green" id="btnBackToStep1">
+                  <span class="game-btn__text">Choose again</span>
+                </button>
+              </div>
             </div>
 
             <!-- ============ STEP 3: Done ============ -->
@@ -225,10 +231,10 @@
               <!-- Selected Frog -->
               <div class="nft-list-item nft-list-item--bordered mb-16">
                 <div class="nft-list-item__avatar">
-                  <img src="../assets/thumbs/avatar.webp" alt="Princess Frog">
+                  <img src="../assets/thumbs/avt-princess.png" alt="" id="s3FrogImg">
                 </div>
                 <div class="nft-list-item__info">
-                  <span class="nft-list-item__name">Princess Frog</span>
+                  <span class="nft-list-item__name" id="s3FrogName">Princess Frog</span>
                   <span class="nft-list-item__desc">365 Days</span>
                 </div>
               </div>
@@ -238,7 +244,7 @@
                 <div class="info-row">
                   <img src="../assets/icons/Coin.svg" alt="" class="info-row__icon">
                   <span class="info-row__label">Unit Price</span>
-                  <span class="info-row__value text-primary-orange">120.00 USDT</span>
+                  <span class="info-row__value text-primary-orange" id="s3UnitPrice">120.00 USDT</span>
                 </div>
                 <div class="info-row">
                   <img src="../assets/icons/time1.svg" alt="" class="info-row__icon">
@@ -248,7 +254,7 @@
                 <div class="info-row">
                   <img src="../assets/icons/MoneyBag.svg" alt="" class="info-row__icon">
                   <span class="info-row__label">Total Payment</span>
-                  <span class="info-row__value text-primary">600.00 USDT</span>
+                  <span class="info-row__value text-primary" id="s3TotalPayment">600.00 USDT</span>
                 </div>
                 <div class="info-row">
                   <img src="../assets/icons/card.svg" alt="" class="info-row__icon">
@@ -281,12 +287,74 @@
     });
   </script>
   <script>
+    // Selected frog data
+    let selectedFrog = null;
+
+    // Populate Step 2 & 3 with selected frog data
+    function updateStepContent() {
+      if (!selectedFrog) return;
+      const { name, img, price, total } = selectedFrog;
+
+      // Step 2
+      document.getElementById('s2FrogImg').src = img;
+      document.getElementById('s2FrogImg').alt = name;
+      document.getElementById('s2FrogName').textContent = name;
+      document.getElementById('s2UnitPrice').textContent = price + ' USDT';
+      document.getElementById('s2TotalPayment').textContent = total + ' USDT';
+      document.getElementById('s2Notice').textContent = name + ' will be added to your wallet after successful payment.';
+
+      // Step 3
+      document.getElementById('s3FrogImg').src = img;
+      document.getElementById('s3FrogImg').alt = name;
+      document.getElementById('s3FrogName').textContent = name;
+      document.getElementById('s3UnitPrice').textContent = price + ' USDT';
+      document.getElementById('s3TotalPayment').textContent = total + ' USDT';
+    }
+
+    // NFT list selection → enable Continue + store data
+    (function() {
+      const radios = document.querySelectorAll('input[name="frogType"]');
+      const btnContinue = document.getElementById('btnContinue');
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', function() {
+          const label = this.closest('.nft-list-item');
+          selectedFrog = {
+            name:  label.dataset.frogName,
+            img:   label.dataset.frogImg,
+            price: label.dataset.frogPrice,
+            total: label.dataset.frogTotal
+          };
+          // Enable Continue
+          btnContinue.disabled = false;
+          btnContinue.classList.remove('game-btn--disabled');
+          if (typeof applyBg === 'function') {
+            setTimeout(function() { applyBg(btnContinue); }, 50);
+          }
+        });
+      });
+
+      btnContinue.addEventListener('click', function() {
+        if (!selectedFrog) return;
+        updateStepContent();
+        goToStep(2);
+      });
+    })();
+
     // Step wizard navigation
     function goToStep(step) {
       // Hide all steps
       document.querySelectorAll('.promo-step').forEach(s => s.style.display = 'none');
       // Show target step
-      document.getElementById('promoStep' + step).style.display = 'block';
+      const target = document.getElementById('promoStep' + step);
+      target.style.display = 'block';
+
+      // Re-render SVG backgrounds for buttons inside newly visible step
+      if (typeof applyBg === 'function') {
+        setTimeout(function() {
+          target.querySelectorAll('.game-btn').forEach(applyBg);
+        }, 20);
+      }
 
       // Update step indicators
       const circles = document.querySelectorAll('.step-indicator__circle');
@@ -306,28 +374,32 @@
       labels.forEach((l, i) => {
         l.classList.toggle('step-indicator__label--active', i + 1 === step || i + 1 < step);
       });
+
+      // Scroll to top of content
+      document.querySelector('.promo-content').scrollTop = 0;
     }
+
+    // Back buttons
+    document.getElementById('btnBackToStep1').addEventListener('click', function() {
+      goToStep(1);
+    });
 
     // Confirm checkbox toggle → enable/disable Confirm Payment button
     (function() {
       const checkbox = document.getElementById('confirmCheck');
       const btn = document.getElementById('btnConfirmPayment');
-      const btnText = btn.querySelector('.game-btn__text');
 
       function updateBtn() {
         const checked = checkbox.classList.contains('game-checkbox--checked');
         if (checked) {
           btn.disabled = false;
           btn.classList.remove('game-btn--disabled');
-          btnText.textContent = 'Confirm Payment';
           btn.onclick = function() { goToStep(3); };
         } else {
           btn.disabled = true;
           btn.classList.add('game-btn--disabled');
-          btnText.textContent = 'Rent';
           btn.onclick = null;
         }
-        // Re-draw SVG background after text change
         if (typeof applyBg === 'function') {
           setTimeout(function() { applyBg(btn); }, 50);
         }
